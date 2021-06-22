@@ -1,0 +1,36 @@
+DROP TABLE IF EXISTS public.students CASCADE;
+
+CREATE TABLE
+    IF NOT EXISTS
+        students (
+            student_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+            name VARCHAR ( 50 ) NOT NULL,
+            last_name VARCHAR ( 50 ) NOT NULL,
+            country VARCHAR ( 50 ) NOT NULL,
+            age INTEGER NOT NULL,
+            created_at TIMESTAMPTZ NOT NULL DEFAULT NOW() 
+);
+
+INSERT INTO students(name,last_name,country,age) VALUES('Lea','Hagovska','RWANDA',66);
+INSERT INTO students(name,last_name,country,age) VALUES('Luna','Selene','America',6);
+INSERT INTO students(name,last_name,country,age) VALUES('Magdalena','Sochon','Uganda',99);
+INSERT INTO students(name,last_name,country,age) VALUES('Max','Lawrie','Philipines',2);
+INSERT INTO students(name,last_name,country,age) VALUES('Mohammed','Shah','India',29);
+
+UPDATE students SET name= 'Ankit' WHERE name LIKE '%Lea%';
+
+/*SELECT * FROM students
+WHERE Country='America'; */
+
+/*SELECT * FROM students
+WHERE Country='Uganda' OR Country='RWANDA'; */
+
+/*SELECT * FROM Students WHERE (name) LIKE '%Ma%';*/
+
+--SELECT * FROM students WHERE (age)>23;
+
+--SELECT * FROM students WHERE (age)>=22 AND (age)<=30;
+
+--SELECT * FROM Students order by age DESC;
+--Select count (*) from students where age>25; 
+--Delete from students where age<18;
